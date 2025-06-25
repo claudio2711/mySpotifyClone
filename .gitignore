@@ -1,0 +1,26 @@
+# Ignora le cartelle node_modules
+/Front-End/node_modules/
+/Back-End/node_modules/
+
+# Ignora i file temporanei di sistema
+.DS_Store
+Thumbs.db
+
+# Ignora l'output della build di React (se presente)
+# /Front-End/dist/       <-- solo se stai usando Vite o altri bundler
+
+# Ignora gli MP3 (i brani locali)
+/Back-End/songs/
+
+# Log di sistema o runtime
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Ambients
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
