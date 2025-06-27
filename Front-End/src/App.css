@@ -133,3 +133,64 @@
   padding: 0.4rem 0.8rem;
 }
 
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.progress-slider {
+  width: 90%;
+  margin-bottom: 5px;
+  appearance: none;
+  height: 6px;
+  background: #ccc;
+  border-radius: 3px;
+  outline: none;
+}
+
+.progress-slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #1db954;
+  cursor: pointer;
+  margin-top: -5px; /* Centrare verticalmente */
+}
+
+.progress-slider::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #1db954;
+  cursor: pointer;
+}
+
+/* Copertina */
+.cover-art {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  margin-bottom: 0.5rem;
+}
+
+/* Titolo, artista, album */
+.album-name {
+  font-style: italic;
+  color: #c0c0c0;
+  margin-top: 0.3rem;
+}
+
+.cover-art {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  margin-bottom: 0.5rem;
+  border: 3px solid rgb(255, 102, 0);   /* ← DEBUG, toglilo dopo */
+}
