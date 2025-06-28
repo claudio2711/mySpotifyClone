@@ -12,21 +12,22 @@ export default function PlayerHeader({
   if (!song) return null;               // safety-check
 
   return (
-    <>
-      {/* ────────── INFO / COPERTINA ────────── */}
-      <div className="song-info">
-        <img
-          className="cover-art"
-          src={song.pictureUrl || placeholderCover}   /* fallback locale */
-          alt="Cover"
-        />
+    <header className="flex flex-col items-center gap-2 mb-6">
+      {/* ─── Copertina ─── */}
+      <img
+        src={song.pictureUrl || placeholderCover}
+        alt={`${song.title} cover`}
+        className="w-100 h-100 object-cover rounded-xl shadow-lg border-4 border-green-950-500"
+      />
 
-        <h2>{song.title}</h2>
-        <p>{song.artist}</p>
-        {song.album && <h4 className="album-name">{song.album}</h4>}
-      </div>
+      {/* ─── Titolo / artista / album ─── */}
+      <h2 className="text-2xl font-semibold">{song.title}</h2>
+      <p className="text-lg text-shadow-black-400">{song.artist}</p>
+      {song.album && (
+        <h4 className="italic text-sm text-blue-950-300">{song.album}</h4>
+      )}
 
-      {/* ────────── AUDIO ELEMENT ──────────*/ }
+      {/* ─── Elemento <audio> ─── */}
       <audio
         ref={audioRef}
         src={song.url}
@@ -36,57 +37,19 @@ export default function PlayerHeader({
           localStorage.setItem("currentTime", a.currentTime.toString());
         }}
         onLoadedMetadata={() => {
-          setDuration?.(audioRef.current.duration);   // durata totale
+          if (audioRef.current?.duration) setDuration(audioRef.current.duration);
         }}
         onEnded={() => {
           if (isLooping) {
-            audioRef.current.currentTime = 0;
-            audioRef.current.play();
+            const a = audioRef.current;
+            a.currentTime = 0;
+            a.play();
           } else {
             nextSong();
           }
         }}
       />
-    </>
-  );
-}
-
-/*import React from 'react';
-
-export default function PlayerHeader({
-  song,
-  audioRef,
-  isLooping,
-  nextSong,
-  setCurrentTime,
-  setDuration,
-}) {
-  if (!song) return null;
-
-  return (
-    <header className="song-info">
-      
-      <img
-        src={song.pictureUrl || 'https://via.placeholder.com/160?text=No+Cover'}
-        alt={`Copertina di ${song.title}`}
-        className="cover-art"
-      />
-
-      
-      <h2 className="text-xl font-semibold mt-2">{song.title}</h2>
-      <p>{song.artist}</p>
-      {song.album && <p className="album-name">{song.album}</p>}
-
-      
-      <audio
-        ref={audioRef}
-        src={song.url}
-        onTimeUpdate={() => setCurrentTime?.(audioRef.current.currentTime)}
-        onLoadedMetadata={() => setDuration?.(audioRef.current.duration)}
-        onEnded={() => (isLooping ? audioRef.current.play() : nextSong())}
-        className="hidden"
-      />
     </header>
   );
 }
- */
+

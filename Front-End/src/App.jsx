@@ -1,5 +1,5 @@
 import "./App.css";
-
+import Background from "./components/Background";
 import PlayerHeader  from "./components/PlayerHeader";
 import Controls      from "./components/Controls";
 import Toggles       from "./components/Toggles";
@@ -38,9 +38,16 @@ export default function App() {
 
   /* UI -------------------------------------------------------------------- */
   return (
-    <>
-    <div className="app p-6 text-center max-w-3xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6">My Personal Music Player</h1>
+    
+        <div className="relative min-h-screen flex flex-col items-center p-6">
+      {/* Wallpaper */}
+      <Background />
+
+      {/* Contenitore centrale (max-width) */}
+      <main className="w-full max-w-3xl flex flex-col items-center space-y-6">
+        <h1 className="text-4xl sm:text-5xl font-extrabold drop-shadow-md text-white">
+          My Personal Music Player
+        </h1>
 
       <PlayerHeader
         song={currentSong}
@@ -99,9 +106,9 @@ export default function App() {
       />
 
      
-
+</main>
     </div>
-</>
+
 
   );
 

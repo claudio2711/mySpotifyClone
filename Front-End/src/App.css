@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 /* tuoi stili custom (facoltativi) qui sotto … */
 
@@ -175,29 +173,3 @@
   cursor: pointer;
 }
 
-/* Copertina */
-.cover-art {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-  margin-bottom: 0.5rem;
-}
-
-/* Titolo, artista, album */
-.album-name {
-  font-style: italic;
-  color: #c0c0c0;
-  margin-top: 0.3rem;
-}
-
-.cover-art {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-  margin-bottom: 0.5rem;
-  border: 3px solid rgb(255, 102, 0);   /* ← DEBUG, toglilo dopo */
-}
