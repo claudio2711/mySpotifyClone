@@ -26,7 +26,7 @@ export default function PlayerHeader({
         {song.album && <h4 className="album-name">{song.album}</h4>}
       </div>
 
-      {/* ────────── AUDIO ELEMENT ────────── */}
+      {/* ────────── AUDIO ELEMENT ──────────*/ }
       <audio
         ref={audioRef}
         src={song.url}
@@ -50,3 +50,43 @@ export default function PlayerHeader({
     </>
   );
 }
+
+/*import React from 'react';
+
+export default function PlayerHeader({
+  song,
+  audioRef,
+  isLooping,
+  nextSong,
+  setCurrentTime,
+  setDuration,
+}) {
+  if (!song) return null;
+
+  return (
+    <header className="song-info">
+      
+      <img
+        src={song.pictureUrl || 'https://via.placeholder.com/160?text=No+Cover'}
+        alt={`Copertina di ${song.title}`}
+        className="cover-art"
+      />
+
+      
+      <h2 className="text-xl font-semibold mt-2">{song.title}</h2>
+      <p>{song.artist}</p>
+      {song.album && <p className="album-name">{song.album}</p>}
+
+      
+      <audio
+        ref={audioRef}
+        src={song.url}
+        onTimeUpdate={() => setCurrentTime?.(audioRef.current.currentTime)}
+        onLoadedMetadata={() => setDuration?.(audioRef.current.duration)}
+        onEnded={() => (isLooping ? audioRef.current.play() : nextSong())}
+        className="hidden"
+      />
+    </header>
+  );
+}
+ */
