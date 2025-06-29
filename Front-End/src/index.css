@@ -1,1 +1,77 @@
 @import "tailwindcss";
+
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/*  Slider “range” personalizzato – track grigio, progress smeraldo   */
+/* ------------------------------------------------------------------ */
+@layer utilities {
+  /*  ELEMENTO <input type="range">  */
+  .range {
+    @apply appearance-none w-full h-2 rounded-lg bg-white/30        /* track base */
+           cursor-pointer;                                          /* mano */
+  }
+
+  /* ---------- WEBKIT (Chrome / Edge / Safari) ---------- */
+  /* track completo */
+  .range::-webkit-slider-runnable-track {
+    @apply h-2 rounded-lg bg-white/30;
+  }
+  /* parte *progress* (si colora grazie a gradient + var) */
+  .range::-webkit-slider-runnable-track {
+    background: linear-gradient(
+        to right,
+        #10b981 var(--tw-progress, 0%),
+        rgba(255,255,255,0.3) var(--tw-progress, 0%)
+      );
+  }
+
+  /* thumb */
+  /* ---------- FIREFOX ---------- */
+  /* track base */
+  .range::-moz-range-track {
+    @apply h-2 rounded-lg bg-white/30;
+  }
+  /* parte progress (Firefox ha un suo pseudo) */
+  .range::-moz-range-progress {
+    @apply h-2 rounded-lg bg-emerald-500;
+  }
+  /* thumb */
+  .range::-moz-range-thumb {
+    @apply w-4 h-4 rounded-full bg-emerald-500
+           border-2 border-white shadow-lg cursor-pointer;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Slider volume – tema blu                                           */
+/* ------------------------------------------------------------------ */
+@layer utilities {
+  .range-blue {
+    @apply appearance-none w-full h-2 rounded-lg bg-white/30;
+  }
+
+  /* WebKit (Chrome/Safari) track + progress */
+  .range-blue::-webkit-slider-runnable-track {
+    @apply h-2 rounded-lg bg-white/30;
+    background: linear-gradient(
+      to right,
+      #3b82f6 var(--tw-progress, 0%),
+      rgba(255,255,255,0.3) var(--tw-progress, 0%)
+    );
+  }
+
+  /* Firefox track + progress */
+  .range-blue::-moz-range-track     { @apply h-2 rounded-lg bg-white/30; }
+  .range-blue::-moz-range-progress  { @apply h-2 rounded-lg bg-blue-500; }
+
+  /* Thumb (WebKit + Firefox) */
+  .range-blue::-webkit-slider-thumb,
+  .range-blue::-moz-range-thumb {
+    @apply w-4 h-4 rounded-full bg-blue-500
+           border-2 border-white shadow-lg cursor-pointer;
+    margin-top: -6px;          /* solo WebKit, ok ignorato da Firefox */
+  }
+}
+
+

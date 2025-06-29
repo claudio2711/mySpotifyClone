@@ -17,14 +17,15 @@ export default function PlayerHeader({
       <img
         src={song.pictureUrl || placeholderCover}
         alt={`${song.title} cover`}
-        className="w-100 h-100 object-cover rounded-xl shadow-lg border-4 border-green-950-500"
+        className="w-100 h-100 object-cover rounded-xl shadow-lg border-4 border-green-950"
       />
 
       {/* ─── Titolo / artista / album ─── */}
-      <h2 className="text-2xl font-semibold">{song.title}</h2>
-      <p className="text-lg text-shadow-black-400">{song.artist}</p>
+      <h2 className="text-lg font-bold text-amber-400">{song.title}</h2>
+
+      <p className="text-lg font-bold text-amber-400">{song.artist}</p>
       {song.album && (
-        <h4 className="italic text-sm text-blue-950-300">{song.album}</h4>
+        <h4 className="text-lg font-bold text-amber-400">{song.album}</h4>
       )}
 
       {/* ─── Elemento <audio> ─── */}
